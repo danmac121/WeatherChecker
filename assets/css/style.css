@@ -1,0 +1,21 @@
+header{
+    margin: none;
+    background: linear-gradient(90deg, rgb(5, 0, 90) 0%, rgba(9,9,121,1) 46%, rgba(0,212,255,1) 100%);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1, body{
+    margin: 0;
+}
+h1{
+    color: white;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+#leftDiv, #rightDiv, #today{
+    border: 1px solid red;
+}
