@@ -1,10 +1,11 @@
-// set the city to the text content of the user input on submit click
-// event listener on div so we can listen to child 
-// make variable for city to be put into the first api fetch
+// New Objectives
+// add buttons under the search bar with the text content of the latest user input text
+// define the ul as global variable append it within the event listener?
 
+let btnList = document.getElementById("previousSearches")
 
 let search = document.getElementById("search")
-// let userText = document.getElementById("userText").value;
+
 
 search.addEventListener("click" , function(event){
 
@@ -31,8 +32,15 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     console.log(data);
   });
   
+  makeButtons();
 }
 })
 
 
-
+function makeButtons(){
+        let userText = document.getElementById("userText").value;
+        let newBtn = document.createElement("button")
+        btnList.appendChild(newBtn)
+        newBtn.classList.add("newBtn")
+        newBtn.textContent = (userText)
+    }

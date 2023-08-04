@@ -19,3 +19,21 @@ h1{
 #leftDiv, #rightDiv, #today{
     border: 1px solid red;
 }
+#futureDays{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.day{
+    background-color: rgba(50,61,79,255);
+    margin: 6%;
+    color: white;
+}
+.day p{
+    padding-left: 5%;
+}
+#previousSearches{
+    display: grid;
+    grid-template-rows: auto;
+    padding-inline-start: 0px;
+}
+
