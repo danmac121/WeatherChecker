@@ -1,6 +1,7 @@
 // New Objectives
-// add buttons under the search bar with the text content of the latest user input text
-// define the ul as global variable append it within the event listener?
+// Retrieve the required data from the api
+// change text contents accordingly
+// will have to figure out moment and doing the time stuff, may need to build a for loop.
 
 let btnList = document.getElementById("previousSearches")
 
@@ -29,7 +30,14 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+    let kelvin = data.list[0].main.temp
+    let windy = data.list[0].wind.speed
+    let humid = data.list[0].main.humidity
+
+    console.log(data)
+    console.log(kelvin);
+    console.log(windy);
+    console.log(humid);
   });
   
   makeButtons();
@@ -44,3 +52,7 @@ function makeButtons(){
         newBtn.classList.add("newBtn")
         newBtn.textContent = (userText)
     }
+
+function todaysWeather(){
+
+}
