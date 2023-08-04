@@ -4,7 +4,7 @@
 // will have to figure out moment and doing the time stuff, may need to build a for loop.
 
 let btnList = document.getElementById("previousSearches")
-
+let currentCity = document.getElementById("currentCity")
 let search = document.getElementById("search")
 let todayTemp = document.getElementById("todayTemp")
 let todayWind = document.getElementById("todayWind")
@@ -34,6 +34,8 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     let kelvin = ((data.list[0].main.temp - 273.15) * 9/5 +32)
     let windy = data.list[0].wind.speed
     let humid = data.list[0].main.humidity
+    let todaysDate = data.list[0].dt
+    currentCity.textContent = (userText + " " + moment(todaysDate, "X").format("l"))
     todayTemp.textContent = ("Temp: " + kelvin.toFixed(2) + "°F")
     todayWind.textContent = ("Wind: " + windy + " MPH")
     todayHumid.textContent = ("Humidity: " + humid + " %")
