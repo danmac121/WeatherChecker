@@ -6,8 +6,9 @@
 let btnList = document.getElementById("previousSearches")
 
 let search = document.getElementById("search")
-
-
+let todayTemp = document.getElementById("todayTemp")
+let todayWind = document.getElementById("todayWind")
+let todayHumid = document.getElementById("todayHumid")
 search.addEventListener("click" , function(event){
 
 if (event.target.matches("button")) {
@@ -30,10 +31,12 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     return response.json();
   })
   .then(function (data) {
-    let kelvin = data.list[0].main.temp
+    let kelvin = ((data.list[0].main.temp - 273.15) * 9/5 +32)
     let windy = data.list[0].wind.speed
     let humid = data.list[0].main.humidity
-
+    todayTemp.textContent = ("Temp: " + kelvin.toFixed(2) + "°F")
+    todayWind.textContent = ("Wind: " + windy + " MPH")
+    todayHumid.textContent = ("Humidity: " + humid + " %")
     console.log(data)
     console.log(kelvin);
     console.log(windy);
