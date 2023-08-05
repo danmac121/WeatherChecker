@@ -36,4 +36,11 @@ h1{
     grid-template-rows: auto;
     padding-inline-start: 0px;
 }
-
+.style{
+    background-color: rgb(50, 61, 79) ;
+    margin: 5px;
+}
+.style p{
+    color: white;
+    padding-left: 5%;
+}

@@ -6,9 +6,11 @@
 let btnList = document.getElementById("previousSearches")
 let currentCity = document.getElementById("currentCity")
 let search = document.getElementById("search")
+let fiveDay = document.getElementById("forecastEl")
 let todayTemp = document.getElementById("todayTemp")
 let todayWind = document.getElementById("todayWind")
 let todayHumid = document.getElementById("todayHumid")
+let cards = document.getElementsByClassName("five")
 
 let firstDate = document.getElementById("firstDate")
 let firstIcon = document.getElementById("firstIcon")
@@ -42,11 +44,11 @@ let fifthHumid = document.getElementById("fifthHumid")
 
 
 search.addEventListener("click" , function(event){
-
+    
 if (event.target.matches("button")) {
     let userText = document.getElementById("userText").value;
-
-
+    fiveDay.textContent = "5-Day Forecast:"
+    addClass()
 fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=61a660a594379343aaaaa4c93e1f2fc8`, {
  
 })
@@ -133,6 +135,9 @@ function makeButtons(){
         newBtn.textContent = (userText)
     }
 
-function todaysWeather(){
-
+function addClass() {
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.add('style')
+        
+    }
 }
