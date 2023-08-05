@@ -7,6 +7,7 @@ let btnList = document.getElementById("previousSearches")
 let currentCity = document.getElementById("currentCity")
 let search = document.getElementById("search")
 let fiveDay = document.getElementById("forecastEl")
+let todayIcon = document.getElementById("todayIcon")
 let todayTemp = document.getElementById("todayTemp")
 let todayWind = document.getElementById("todayWind")
 let todayHumid = document.getElementById("todayHumid")
@@ -68,12 +69,16 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     let humid = data.list[0].main.humidity
     let todaysDate = data.list[0].dt
     currentCity.textContent = (userText + " " + moment(todaysDate, "X").format("l"))
+    currentIcon = data.list[0].weather[0].icon
+    todayIcon.src  = `https://openweathermap.org/img/wn/${currentIcon}@2x.png`
     todayTemp.textContent = ("Temp: " + kelvin.toFixed(2) + "°F")
     todayWind.textContent = ("Wind: " + windy + " MPH")
     todayHumid.textContent = ("Humidity: " + humid + " %")
     console.log(data)
     
     firstDay = moment(data.list[7].dt, "X").format("l")
+    oneIcon = data.list[7].weather[0].icon
+    firstIcon.src  = `https://openweathermap.org/img/wn/${oneIcon}@2x.png`
     tempOne = ((data.list[7].main.temp - 273.15) * 9/5 +32)
     windOne = data.list[7].wind.speed
     humidOne = data.list[7].main.humidity
@@ -83,6 +88,8 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     firstHumid.textContent = ("Humidity: " + humidOne + " %")
 
     secondDay = moment(data.list[15].dt, "X").format("l")
+    twoIcon = data.list[15].weather[0].icon
+    secondIcon.src  = `https://openweathermap.org/img/wn/${twoIcon}@2x.png`
     tempOne = ((data.list[15].main.temp - 273.15) * 9/5 +32)
     windOne = data.list[15].wind.speed
     humidOne = data.list[15].main.humidity
@@ -92,6 +99,8 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     secondHumid.textContent = ("Humidity: " + humidOne + " %")
 
     thirdDay = moment(data.list[23].dt, "X").format("l")
+    threeIcon = data.list[23].weather[0].icon
+    thirdIcon.src  = `https://openweathermap.org/img/wn/${threeIcon}@2x.png`
     tempThree = ((data.list[23].main.temp - 273.15) * 9/5 +32)
     windThree = data.list[23].wind.speed
     humidThree = data.list[23].main.humidity
@@ -101,6 +110,8 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     thirdHumid.textContent = ("Humidity: " + humidThree + " %")
 
     fourthDay = moment(data.list[31].dt, "X").format("l")
+    fourIcon = data.list[31].weather[0].icon
+    fourthIcon.src  = `https://openweathermap.org/img/wn/${fourIcon}@2x.png`
     tempFour = ((data.list[31].main.temp - 273.15) * 9/5 +32)
     windFour = data.list[31].wind.speed
     humidFour = data.list[31].main.humidity
@@ -110,6 +121,8 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=
     fourthHumid.textContent = ("Humidity: " + humidFour + " %")
 
     fifthDay = moment(data.list[39].dt, "X").format("l")
+    fiveIcon = data.list[39].weather[0].icon
+    fifthIcon.src  = `https://openweathermap.org/img/wn/${fiveIcon}@2x.png`
     tempFive = ((data.list[39].main.temp - 273.15) * 9/5 +32)
     windFive = data.list[39].wind.speed
     humidFive = data.list[39].main.humidity
