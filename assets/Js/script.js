@@ -48,7 +48,7 @@ if (event.target.matches("button")) {
     // calls the add class function to add the style class for the 5 day cards
     addClass()
     // we plug userText into the api call to get the data for the requested city
-fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=61a660a594379343aaaaa4c93e1f2fc8`, {
+fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${userText}&limit=5&appid=61a660a594379343aaaaa4c93e1f2fc8`, {
  
 })
   .then(response => response.json()) 
@@ -159,7 +159,7 @@ btnList.addEventListener("click", function(event){
     let storedCities = getStoredCities()
     let storedCityName = storedCities.find(city => city === cityName);
     if (storedCityName) {
-      fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=61a660a594379343aaaaa4c93e1f2fc8`, {
+      fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=61a660a594379343aaaaa4c93e1f2fc8`, {
   
     })
       .then(response => response.json()) 
