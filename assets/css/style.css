@@ -1,3 +1,8 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 header{
     margin: none;
     background: linear-gradient(90deg, rgb(5, 0, 90) 0%, rgba(9,9,121,1) 46%, rgba(0,212,255,1) 100%);
@@ -5,6 +10,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 header h1, body{
     margin: 0;
@@ -16,9 +22,7 @@ h1{
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
-#leftDiv, #rightDiv, #today{
-    border: 1px solid red;
-}
+
 #futureDays{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -35,6 +39,22 @@ h1{
     display: grid;
     grid-template-rows: auto;
     padding-inline-start: 0px;
+    border-top: 3px solid grey;
+    
+    margin: auto;
+}
+#leftDiv{
+    margin-right: 30px;
+    margin-left: 10px;
+}
+#rightDiv{
+    width: 85%;
+}
+#today{
+    border: 1px solid black
+}
+#search{
+    margin-bottom: 10px;
 }
 .style{
     background-color: rgb(50, 61, 79) ;
@@ -44,3 +64,30 @@ h1{
     color: white;
     padding-left: 5%;
 }
+button{
+    color: black;
+    background-color: rgb(216, 215, 215);
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+   
+    padding: 7px 7px ;
+}
+button:hover{
+    background-color: lightblue;
+}
+/* media query to change page layout on smaller screens */
+@media screen and (max-width: 768px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    #rightDiv{
+        margin: 20px 10px ;
+        width: 95%;
+
+    }
+    header{
+        width: 100%;
+    }
+  }
